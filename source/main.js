@@ -91,7 +91,7 @@ client.on('messageCreate',(message) => {
 })
 */
 
-//client.login('MTA2NTg3MTIzNDQ3MjA4MzQ5Nw.GxPLB0.GsJST4uvPuFlpoTMy0UsYq9YNfc9-rshlIvYIk')
+//client.login('')
 
 /*
 console.log(process.env.TOKEN)
