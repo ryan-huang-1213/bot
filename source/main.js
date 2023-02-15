@@ -91,8 +91,6 @@ client.on('messageCreate',(message) => {
 })
 */
 
-//client.login('')
-
 /*
 console.log(process.env.TOKEN)
 client.login(process.env.TOKEN)
