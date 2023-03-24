@@ -2,49 +2,54 @@
 const dotenv = require('dotenv')
 dotenv.config()
 const { GatewayIntentBits, IntentsBitField } = require('discord.js')
-//從discord.js引入函式Client, Events, GatewayIntentBits 
 const token = process.env['TOKEN']
 console.log(token)
-//列印文字到主控台
+const client = new Client({ intents: [GatewayIntentBits.Guilds] })
+client.once(Events.ClientReady, c => {
+	console.log(`Ready! Logged in as ${c.user.tag}`)
+})
+client.login(token)
 */
 
 /*這是if
+let number = 1
+if(number==1){
+    console.log('the number is 1')
+}*/
+
+/*這是if else 
+let number = 2
+if(number==1){
+    console.log('the number is 1')
+}else{
+    console.log('the number isn\'t 1')
+}
+*/
+
+/*這是if else if 
 let number = 2
 if(number==1){
     console.log('the number is 1')
 }else if(number == 2){
     console.log('the number is 2')
-}else {
-    console.log('the number is neither 1 nor 2')
 }
 */
 
 /*這是for
 for(let i=1;i<5;i++){
     console.log(`this is for loop ${i}`)
-}
-*/
-/*
-const client = new Client({ intents: [GatewayIntentBits.Guilds] })
-//創建一個新的用戶實體
-
-client.once(Events.ClientReady, c => {
-	console.log(`Ready! Logged in as ${c.user.tag}`)
-})
-
-client.login(token)
-*/
+}*/
 
 ////////////second project 
 
 //this is for common.js module 
+
 const dotenv = require('dotenv')
 dotenv.config()
 let token = process.env.token
 console.log(token)
-const { GatewayIntentBits, IntentsBitField } = require('discord.js')
+const { GatewayIntentBits, IntentsBitField, Client } = require('discord.js')
 const DiscordJS = require('discord.js')
-
 
 /*this is for es6 module 
 import dotenv from 'dotenv'
@@ -54,13 +59,15 @@ console.log(process.env['TOKEN'])
 import { GatewayIntentBits, IntentsBitField } from 'discord.js'
 import DiscordJS from 'discord.js'
 */
-const client = new DiscordJS.Client({
+
+const client = new Client({
     intents:[
-     GatewayIntentBits.Guilds,
-     GatewayIntentBits.GuildMessages,
-     GatewayIntentBits.MessageContent,
+        GatewayIntentBits.Guilds, //伺服器事件
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
     ]
 })
+
 
 client.on('ready',c =>{
     console.log(`${c.user.tag}準備好了!`)
@@ -80,26 +87,29 @@ client.on('ready',c =>{
     })
     */
 })
-/*這是for
+
+/*這是for*/
 const replies = {
     'ping': 'pong',
     '餓': '我建議你吃東西',
     '累': '撐住，別睡著',
-};
+}
 
 client.on('messageCreate', (message)=> {
     for (const [key, value] of Object.entries(replies)) {
         if (message.content.includes(key)) {
-          message.reply(value);
+          message.reply(value)
         }
     }
 })
-*/
 
-var count=0;
 
+/*
 client.on('messageCreate', (message)=> {
-    /* if else 
+    
+})
+*/
+/*if else 
     if (message.content.includes(`ping`)){
         message.reply({
             content:`pong`,
@@ -110,27 +120,23 @@ client.on('messageCreate', (message)=> {
         })
     }
     */
-    /*if if*/
-    
+
+    /*if if
     if (message.content === 'ping'){
-        count++//
+        count++
         message.reply({
             content:`pong${count}`,
         })
     }
-    if(message.content.includes(`pong`)){
-        count++//
+    if(message.content.includes(`餓`)){
         message.reply({
-            content:`ping`,
+            content:`我建議你吃東西`,
         })
-    }
-    
-})
+    }*/
 
 client.login(token)
 
-
-/* slash command
+/* slash command0
 client.on('interactionCreate',async(interaction) =>{
     if(!interaction.isCommand()){
         return
