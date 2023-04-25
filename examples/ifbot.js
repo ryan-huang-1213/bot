@@ -18,7 +18,7 @@ const client = new Client({
 client.on("messageCreate", (message) => {
   if (message.content === "ping") {
     message.reply({
-      cotent: "pong",
+      content: "pong",
     });
   }
 });
@@ -27,12 +27,12 @@ client.on("messageCreate", (message) => {
 client.on("messageCreate", (message) => {
   if (message.content.includes(`ping`)) {
     message.reply({
-      cotent: "pong",
+      content: "pong",
     });
   }
   if (message.content.includes(`餓`)) {
     message.reply({
-      cotent: "我建議你吃東西",
+      content: "我建議你吃東西",
     });
   }
 });
@@ -41,11 +41,11 @@ client.on("messageCreate", (message) => {
 client.on("messageCreate", (message) => {
   if (message.content.includes(`ping`)) {
     message.reply({
-      cotent: "pong",
+      content: "pong",
     });
   } else if (message.content.includes(`餓`)) {
     message.reply({
-      cotent: "我建議你吃東西",
+      content: "我建議你吃東西",
     });
   }
 });

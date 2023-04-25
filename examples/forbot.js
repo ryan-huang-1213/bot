@@ -22,11 +22,9 @@ const replies = {
 };
 
 client.on("messageCreate", (message) => {
-  for (const [ket, value] of Object.entries(replies)) {
+  for (const [key, value] of Object.entries(replies)) {
     if (message.content.includes(key)) {
-      message.reply({
-        intents: "value",
-      });
+      message.reply(value);
     }
   }
 });
